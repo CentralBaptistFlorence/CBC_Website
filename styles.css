@@ -1021,10 +1021,10 @@ a:hover {
 .fund-bar-bg {
   position: relative;
   height: 28px;
-  background-color: #e0ddd5;
+  background-color: #f0ede5;
   border-radius: 14px;
   overflow: visible;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
 .fund-bar-fill {

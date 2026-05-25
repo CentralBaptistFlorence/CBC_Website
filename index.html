@@ -11,6 +11,12 @@
   <!-- Header (loaded from header.html) -->
   <div id="header-placeholder"></div>
 
+  <!-- Live Service Banner (shown only when live) -->
+  <div id="live-banner" style="display: none; background-color: #cc0000; color: #fff; text-align: center; padding: 12px 20px; font-size: 1rem; font-weight: 600; letter-spacing: 0.3px; z-index: 99;">
+    <span style="margin-right: 10px;">🔴 We're Live Now!</span>
+    <a href="https://www.facebook.com/share/1Cn43cagNU/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline; font-weight: 700;">Join Us on Facebook →</a>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
     <h2>Welcome Home</h2>
@@ -91,5 +97,37 @@
   <div id="footer-placeholder"></div>
 
   <script src="includes.js"></script>
+  <script>
+    // ── Live Service Banner ──────────────────────────────────
+    // Shows banner if Google Sheet says "Yes" AND it's Sunday 10:45 AM – 1:00 PM CST
+    const LIVE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSorjPfoUtEPjLwjmxe21hm_lqyrxeajoYLw1LacVZnjfH0z6GsOHKTMIZIgo9L7JbP8rH4RgHl9UlD/pub?gid=0&single=true&output=csv';
+
+    function checkLive() {
+      const now = new Date();
+      const cst = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+      const day = cst.getDay();
+      const hour = cst.getHours();
+      const min = cst.getMinutes();
+      const totalMin = hour * 60 + min;
+      const windowStart = 10 * 60 + 45;
+      const windowEnd   = 12 * 60 + 15;
+
+      const inTimeWindow = (day === 0 && totalMin >= windowStart && totalMin <= windowEnd);
+
+      if (!inTimeWindow) return;
+
+      fetch(LIVE_SHEET_URL)
+        .then(res => res.text())
+        .then(csv => {
+          const value = csv.split('\n')[0].trim().toLowerCase().replace(/[^a-z]/g, '');
+          if (value === 'yes') {
+            document.getElementById('live-banner').style.display = 'block';
+          }
+        })
+        .catch(() => {});
+    }
+
+    checkLive();
+  </script>
 </body>
 </html>

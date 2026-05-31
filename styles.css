@@ -1249,6 +1249,14 @@ a:hover {
    Mobile Hamburger Nav
    =========================== */
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 30px;
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -1258,7 +1266,6 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: 6px;
-  margin-left: 8px;
 }
 
 .nav-hamburger span {
@@ -1270,7 +1277,6 @@ a:hover {
   transition: transform 0.25s, opacity 0.25s;
 }
 
-/* Animate to X when open */
 .nav-hamburger.is-open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -1282,6 +1288,30 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .header-top {
+    justify-content: flex-start;
+    padding: 12px 16px;
+  }
+
+  .header-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .header-title .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .header-right {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .header-social {
+    display: none;
+  }
+
   .nav-hamburger {
     display: flex;
   }

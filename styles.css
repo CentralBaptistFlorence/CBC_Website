@@ -42,7 +42,7 @@ a:hover {
 .header-top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 16px 30px;
   gap: 16px;
   background-color: #142e4a;
@@ -1251,8 +1251,6 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  right: 30px;
 }
 
 .nav-hamburger {
@@ -1300,10 +1298,7 @@ a:hover {
   }
 
   .header-right {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    gap: 8px;
   }
 
   .header-social {

@@ -5,6 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events — Central Baptist Church</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Lightbox */
+    #vbs-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #vbs-lightbox.open {
+      display: flex;
+    }
+    .vbs-lightbox-inner {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+    }
+    .vbs-lightbox-inner .vbs-video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .vbs-lightbox-inner .vbs-video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    .vbs-close {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .vbs-close:hover { color: #c9a84c; }
+  </style>
 </head>
 <body>
 
@@ -16,7 +63,7 @@
     <p>Stay connected with what's happening at Central Baptist Church</p>
   </section>
 
-  <!-- Under Construction removed — first event added -->
+  <!-- Upcoming Events -->
   <section class="section" style="max-width: 800px;">
     <h3>Upcoming Events</h3>
     <hr class="section-divider" />
@@ -26,7 +73,7 @@
       <img
         src="images/vbs-2026.jpg"
         alt="Kingdom Quest VBS 2026"
-        style="width: 100%; display: block; border-radius: 12px 12px 0 0;"
+        style="width: 100%; display: block;"
       />
       <div style="padding: 28px 30px; text-align: center;">
         <h4 style="font-size: 1.4rem; color: #1a3a5c; margin-bottom: 8px;">Kingdom Quest — Vacation Bible School</h4>
@@ -35,22 +82,71 @@
           Join us for an epic journey to discover God's Kingdom! Kingdom Quest VBS is a fun-filled 
           three-night adventure for kids with games, music, crafts, dinner, and the Word of God.
         </p>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSedrSly5qk2ggaMEWxqQ-Yhhz5wv0GScNatM1cHg7wI8qUZfQ/viewform?usp=dialog"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="giving-btn"
-          style="font-size: 1rem; padding: 14px 32px;"
-        >
-          Register Your Child Today
-        </a>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+          <button
+            id="vbs-trigger"
+            class="giving-btn"
+            style="font-size: 1rem; padding: 14px 32px; background-color: #1a3a5c; color: #fff !important; border: none; cursor: pointer;"
+          >
+            ▶ Watch Preview
+          </button>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSedrSly5qk2ggaMEWxqQ-Yhhz5wv0GScNatM1cHg7wI8qUZfQ/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="giving-btn"
+            style="font-size: 1rem; padding: 14px 32px;"
+          >
+            Register Your Child Today
+          </a>
+        </div>
       </div>
     </div>
 
   </section>
 
+  <!-- Video Lightbox -->
+  <div id="vbs-lightbox">
+    <div class="vbs-lightbox-inner">
+      <button class="vbs-close" id="vbs-close" aria-label="Close video">✕</button>
+      <div class="vbs-video-wrap">
+        <iframe
+          id="vbs-iframe"
+          src=""
+          title="Kingdom Quest VBS Preview"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
 
   <script src="includes.js"></script>
+  <script>
+    var vbsTrigger = document.getElementById('vbs-trigger');
+    var vbsLightbox = document.getElementById('vbs-lightbox');
+    var vbsClose = document.getElementById('vbs-close');
+    var vbsIframe = document.getElementById('vbs-iframe');
+    var VBS_VIDEO = 'https://www.youtube.com/embed/ySUElMGSUJ0?autoplay=1';
+
+    vbsTrigger.addEventListener('click', function () {
+      vbsIframe.src = VBS_VIDEO;
+      vbsLightbox.classList.add('open');
+    });
+
+    function closeLightbox() {
+      vbsLightbox.classList.remove('open');
+      vbsIframe.src = '';
+    }
+
+    vbsClose.addEventListener('click', closeLightbox);
+    vbsLightbox.addEventListener('click', function (e) {
+      if (e.target === vbsLightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>

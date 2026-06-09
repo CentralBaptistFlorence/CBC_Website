@@ -215,7 +215,7 @@
         p1s.textContent = 'Funded ✓';
       } else if (amount > 0) {
         p1.classList.add('phase-active');
-        p1s.textContent = 'In Progress';
+        p1s.textContent = Math.round(Math.min(amount / 10000 * 100, 100)) + '% Raised';
       }
 
       const p2 = document.getElementById('phase2');
@@ -225,7 +225,7 @@
         p2s.textContent = 'Funded ✓';
       } else if (amount >= 10000) {
         p2.classList.add('phase-active');
-        p2s.textContent = 'In Progress';
+        p2s.textContent = Math.round(Math.min((amount - 10000) / 10000 * 100, 100)) + '% Raised';
       }
 
       const p3 = document.getElementById('phase3');
@@ -235,7 +235,7 @@
         p3s.textContent = 'Funded ✓';
       } else if (amount >= 20000) {
         p3.classList.add('phase-active');
-        p3s.textContent = 'In Progress';
+        p3s.textContent = Math.round(Math.min((amount - 20000) / 10000 * 100, 100)) + '% Raised';
       }
     }
 

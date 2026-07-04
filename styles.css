@@ -1354,3 +1354,28 @@ a:hover {
     padding: 10px 36px;
   }
 }
+
+/* Phase individual bars */
+.phase-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: #e0ddd5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.phase-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #c9a84c, #e8c96a);
+  border-radius: 6px;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phase-bar-amount {
+  font-size: 0.78rem;
+  color: #888;
+  text-align: center;
+  margin-top: 5px;
+  min-height: 1em;
+}

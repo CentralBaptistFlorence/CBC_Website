@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Harbor Student Ministry — Central Baptist Church</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .harbor-hero {
+      background: linear-gradient(135deg, #0f2338 0%, #1a3a5c 50%, #0f2338 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 30px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .harbor-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, rgba(201,168,76,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .harbor-hero h2 {
+      font-size: 3rem;
+      color: #c9a84c;
+      margin-bottom: 6px;
+      position: relative;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .harbor-hero .harbor-sub {
+      font-size: 1rem;
+      color: #b0c4d8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .harbor-hero p {
+      font-size: 1.15rem;
+      max-width: 580px;
+      color: #d4dce6;
+      position: relative;
+      line-height: 1.7;
+    }
+    .harbor-divider {
+      width: 60px;
+      height: 3px;
+      background-color: #c9a84c;
+      margin: 0 auto 30px;
+      border: none;
+    }
+    .harbor-card {
+      background: #fff;
+      border: 1px solid #e0ddd5;
+      border-top: 4px solid #c9a84c;
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .harbor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .harbor-card h4 {
+      font-size: 1.1rem;
+      color: #1a3a5c;
+      margin-bottom: 10px;
+    }
+    .harbor-card p {
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+    .harbor-mission {
+      background: linear-gradient(135deg, #1a3a5c, #142e4a);
+      color: #fff;
+      padding: 60px 30px;
+      text-align: center;
+    }
+    .harbor-mission h3 {
+      color: #c9a84c;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .harbor-mission p {
+      color: #d4dce6;
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 250px; padding: 60px 30px;">
+    <h2>The Harbor Student Ministry</h2>
+    <p>A student ministry where teenagers are loved, known, and challenged to grow as followers of Jesus.</p>
+  </section>
+
+  <!-- Welcome -->
+  <section class="section" style="max-width: 800px;">
+    <hr class="harbor-divider" />
+    <p>
+      <cite index="1-1,1-2">Our desire is to help students build a faith that is truly their own. 
+      We want every teenager to know they are loved by God, welcomed into a 
+      community that cares for them, and challenged to grow as followers of Jesus.</cite>
+    </p>
+    <p style="margin-top: 16px;">
+      <cite index="1-3">Whether your student has grown up in church or is walking through our doors for the 
+      very first time, they'll find a place where they can belong, ask honest questions, build 
+      lasting friendships, and discover God's purpose for their lives.</cite>
+    </p>
+    <p style="margin-top: 16px;">
+      <cite index="1-4">We believe parents are the primary spiritual influence in a teenager's life, and we are 
+      committed to partnering with families as students navigate middle school, high school, 
+      and beyond.</cite>
+    </p>
+  </section>
+
+  <!-- What to Expect -->
+  <section class="section" style="max-width: 1000px;">
+    <h3>What to Expect</h3>
+    <hr class="harbor-divider" />
+    <div class="card-row">
+
+      <div class="harbor-card">
+        <h4>📖 Sunday School</h4>
+        <p>
+          <cite index="1-5,1-6">Students gather each Sunday for Sunday School designed specifically for middle and 
+          high school students. Through engaging teaching and meaningful discussion, we help 
+          teenagers understand God's Word and apply it to everyday life.</cite>
+        </p>
+      </div>
+
+      <div class="harbor-card">
+        <h4>⚡ Wednesday Nights</h4>
+        <p>
+          <cite index="1-7">Students experience energetic games, authentic worship, and relevant Bible teaching, 
+          where they can build friendships and grow deeper in their faith.</cite>
+        </p>
+      </div>
+
+      <div class="harbor-card">
+        <h4>🏕️ Events & Camps</h4>
+        <p>
+          <cite index="1-8,1-9">Throughout the year we offer camps, retreats, mission opportunities, service projects, 
+          and fun events that help students connect while growing closer to Christ — creating 
+          lifelong memories and encouraging students to live out their faith.</cite>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Our Leaders -->
+  <section class="section" style="max-width: 800px; background-color: #f0ede5; padding: 50px 30px; max-width: 100%;">
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <h3>Our Leaders</h3>
+      <hr class="harbor-divider" />
+      <p>
+        <cite index="1-10,1-11">Our student ministry is led by Amelia Wilson, who genuinely loves teenagers and is 
+        passionate about pointing them to Jesus. Amelia and our volunteers are committed to 
+        creating a safe, welcoming environment where students are known, encouraged, and 
+        challenged to grow spiritually.</cite>
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <div class="harbor-mission">
+    <h3>Our Mission</h3>
+    <hr class="harbor-divider" style="background-color: #c9a84c;" />
+    <p>
+      <cite index="1-13,1-14,1-15">Helping students know Jesus, grow in their faith, build authentic relationships, and 
+      boldly live for Christ wherever God has placed them. No matter where you are on your 
+      journey, there's a place for you at The Harbor Student Ministry. We'd love to meet you!</cite>
+    </p>
+  </div>
+
+  <!-- Join Us -->
+  <section class="section" style="max-width: 700px; text-align: center;">
+    <h3>Come Join The Harbor Student Ministry</h3>
+    <hr class="harbor-divider" />
+    <p>
+      We meet every Sunday morning and Wednesday evening. If you have questions or want 
+      to know more, <a href="contact.html" style="color: #c9a84c; font-weight: bold;">reach out to us</a> 
+      — we'd love to connect with you and your family.
+    </p>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="includes.js"></script>
+</body>
+</html>

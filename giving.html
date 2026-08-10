@@ -186,7 +186,7 @@
     const GOAL = 30000;
 
     function formatCurrency(n) {
-      return '$' + n.toLocaleString('en-US');
+      return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     function updateTracker(amount) {

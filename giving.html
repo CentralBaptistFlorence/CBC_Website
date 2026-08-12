@@ -103,7 +103,6 @@
           <div class="phase-bar-fill" id="phase1bar"></div>
         </div>
         <p class="phase-bar-amount" id="phase1amount"></p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #c9a84c; font-weight: 700;">🎯 Target: June 2026</p>
       </div>
 
       <div class="fund-phase" id="phase2">
@@ -128,6 +127,7 @@
           <div class="phase-bar-fill" id="phase3bar"></div>
         </div>
         <p class="phase-bar-amount" id="phase3amount"></p>
+        <p id="phase3target" style="margin-top: 10px; font-size: 0.8rem; color: #c9a84c; font-weight: 700;">🎯 Target: September 2026</p>
       </div>
 
     </div>
@@ -237,6 +237,7 @@
       const p3s = document.getElementById('phase3status');
       const p3bar = document.getElementById('phase3bar');
       const p3amt = document.getElementById('phase3amount');
+      const p3target = document.getElementById('phase3target');
       const p3pct = Math.min(Math.max(amount - 22000, 0) / 8000 * 100, 100);
       const p3raised = Math.min(Math.max(amount - 22000, 0), 8000);
       setTimeout(() => { p3bar.style.width = p3pct + '%'; }, 100);
@@ -245,6 +246,7 @@
         p3bar.style.background = '#2e7d32';
         p3s.textContent = 'Funded ✓';
         p3amt.textContent = '';
+        if (p3target) p3target.style.display = 'none';
       } else if (amount >= 22000) {
         p3.classList.add('phase-active');
         p3s.textContent = Math.round(p3pct) + '% Raised';

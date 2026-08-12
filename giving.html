@@ -107,11 +107,11 @@
       </div>
 
       <div class="fund-phase" id="phase2">
-        <div class="fund-phase-icon">🚻</div>
+        <div class="fund-phase-icon">🅿️</div>
         <div class="fund-phase-status" id="phase2status">Upcoming</div>
         <h4>Phase 2</h4>
-        <div class="fund-phase-goal">$10,000</div>
-        <p>Complete the full bathroom installation, bringing accessible restrooms to our congregation on the sanctuary floor.</p>
+        <div class="fund-phase-goal">$12,000</div>
+        <p>Add accessible parking directly in front of the sanctuary for easier access for all visitors.</p>
         <div class="phase-bar-bg" style="margin-top: 14px;">
           <div class="phase-bar-fill" id="phase2bar"></div>
         </div>
@@ -119,11 +119,11 @@
       </div>
 
       <div class="fund-phase" id="phase3">
-        <div class="fund-phase-icon">🅿️</div>
+        <div class="fund-phase-icon">🚻</div>
         <div class="fund-phase-status" id="phase3status">Upcoming</div>
         <h4>Phase 3</h4>
-        <div class="fund-phase-goal">$10,000</div>
-        <p>Add accessible parking directly in front of the sanctuary for easier access for all visitors.</p>
+        <div class="fund-phase-goal">$8,000</div>
+        <p>Complete the full bathroom installation, bringing accessible restrooms to our congregation on the sanctuary floor.</p>
         <div class="phase-bar-bg" style="margin-top: 14px;">
           <div class="phase-bar-fill" id="phase3bar"></div>
         </div>
@@ -213,15 +213,15 @@
         p1amt.textContent = formatCurrency(Math.min(amount, 10000)) + ' of $10,000';
       }
 
-      // Phase 2 (10k–20k)
+      // Phase 2 (10k–22k, $12k goal)
       const p2 = document.getElementById('phase2');
       const p2s = document.getElementById('phase2status');
       const p2bar = document.getElementById('phase2bar');
       const p2amt = document.getElementById('phase2amount');
-      const p2pct = Math.min(Math.max(amount - 10000, 0) / 10000 * 100, 100);
-      const p2raised = Math.min(Math.max(amount - 10000, 0), 10000);
+      const p2pct = Math.min(Math.max(amount - 10000, 0) / 12000 * 100, 100);
+      const p2raised = Math.min(Math.max(amount - 10000, 0), 12000);
       setTimeout(() => { p2bar.style.width = p2pct + '%'; }, 100);
-      if (amount >= 20000) {
+      if (amount >= 22000) {
         p2.classList.add('phase-complete');
         p2bar.style.background = '#2e7d32';
         p2s.textContent = 'Funded ✓';
@@ -229,26 +229,26 @@
       } else if (amount >= 10000) {
         p2.classList.add('phase-active');
         p2s.textContent = Math.round(p2pct) + '% Raised';
-        p2amt.textContent = formatCurrency(p2raised) + ' of $10,000';
+        p2amt.textContent = formatCurrency(p2raised) + ' of $12,000';
       }
 
-      // Phase 3 (20k–30k)
+      // Phase 3 (22k–30k, $8k goal)
       const p3 = document.getElementById('phase3');
       const p3s = document.getElementById('phase3status');
       const p3bar = document.getElementById('phase3bar');
       const p3amt = document.getElementById('phase3amount');
-      const p3pct = Math.min(Math.max(amount - 20000, 0) / 10000 * 100, 100);
-      const p3raised = Math.min(Math.max(amount - 20000, 0), 10000);
+      const p3pct = Math.min(Math.max(amount - 22000, 0) / 8000 * 100, 100);
+      const p3raised = Math.min(Math.max(amount - 22000, 0), 8000);
       setTimeout(() => { p3bar.style.width = p3pct + '%'; }, 100);
       if (amount >= 30000) {
         p3.classList.add('phase-complete');
         p3bar.style.background = '#2e7d32';
         p3s.textContent = 'Funded ✓';
         p3amt.textContent = '';
-      } else if (amount >= 20000) {
+      } else if (amount >= 22000) {
         p3.classList.add('phase-active');
         p3s.textContent = Math.round(p3pct) + '% Raised';
-        p3amt.textContent = formatCurrency(p3raised) + ' of $10,000';
+        p3amt.textContent = formatCurrency(p3raised) + ' of $8,000';
       }
     }
 
